@@ -1,4 +1,4 @@
-package com.cy;
+package com.cy.eureka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,13 +19,13 @@ import org.springframework.core.env.Environment;
 @EnableEurekaServer
 public class EurekaApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(EurekaApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(EurekaApplication.class);
 
     public static void main(String[] args) {
 //        SpringApplication.run(EurekaApplication.class, args);
         SpringApplication application = new SpringApplication(EurekaApplication.class);
         Environment env = application.run(args).getEnvironment();
-        logger.info("启动成功！");
-        logger.info("Eurekad地址：\thttp://127.0.0.1:{}",env.getProperty("server.port"));
+        LOGGER.info("启动成功！");
+        LOGGER.info("Eureka地址：\thttp://127.0.0.1:{}",env.getProperty("server.port"));
     }
 }
